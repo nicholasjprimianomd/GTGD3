@@ -3,14 +3,16 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Reflection.Emit;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Chapter1
 {
 	public class Welcome : MonoBehaviour
 	{
 		public string myMessage = "Welcome";
-		private Text textWelcome;
 		public GameObject canvasWelcome;
+		private Text textWelcome;
+		private float waitTime = 3.5f;
 
 		void Start ()
 		{
@@ -31,7 +33,7 @@ namespace Chapter1
 				Debug.Log ("textWelcome not assigned");
 			}
 		
-			StartCoroutine (DisableCanvas (3.5f));
+			StartCoroutine (DisableCanvas (waitTime));
 		}
 
 
