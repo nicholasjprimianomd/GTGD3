@@ -35,9 +35,9 @@ namespace Chapter1
 				Debug.DrawRay (myTransform.position, myTransform.forward, Color.green, 3f);
 				if (Physics.Raycast (myTransform.position, myTransform.forward, out hit, range)) {
 					if (hit.transform.CompareTag ("Enemy")) {
-						Debug.Log ("Enemy: " + hit.transform.name);
+						//Debug.Log ("Enemy: " + hit.transform.name);
 					} else {
-						Debug.Log ("Not an enemy");
+						//Debug.Log ("Not an enemy");
 					}
 				}
 
