@@ -17,7 +17,11 @@ namespace Chapter1
 			hitColliders = Physics.OverlapSphere (explosionPoint, blastRadius, explosionLayers);
 
 			foreach (Collider hitCol in hitColliders) {
-				Debug.Log ("Hit: " + hitCol.gameObject.name);
+
+				if (hitCol.GetComponent<NavMeshAgent> () != null) {
+					hitCol.GetComponent<NavMeshAgent> ().enabled = false;
+				}
+				//Debug.Log ("Hit: " + hitCol.gameObject.name);
 				if (hitCol.GetComponent<Rigidbody> () != null) {
 					hitCol.GetComponent<Rigidbody> ().isKinematic = false;
 					hitCol.GetComponent<Rigidbody> ().AddExplosionForce (explosionPower, explosionPoint, blastRadius, 1f, ForceMode.Impulse);
