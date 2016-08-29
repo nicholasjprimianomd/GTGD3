@@ -8,6 +8,7 @@ namespace Chapter1
 	{
 
 		private Collider[] hitColliders;
+		private float destroyTime = 3;
 		public float blastRadius;
 		public float explosionPower;
 		public LayerMask explosionLayers;
@@ -25,6 +26,10 @@ namespace Chapter1
 				if (hitCol.GetComponent<Rigidbody> () != null) {
 					hitCol.GetComponent<Rigidbody> ().isKinematic = false;
 					hitCol.GetComponent<Rigidbody> ().AddExplosionForce (explosionPower, explosionPoint, blastRadius, 1f, ForceMode.Impulse);
+				}
+
+				if (hitCol.CompareTag ("Enemy")) {
+					Destroy (hitCol.gameObject, destroyTime);
 				}
 
 			}
