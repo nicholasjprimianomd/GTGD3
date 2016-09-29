@@ -12,7 +12,7 @@ namespace Chapter1
 		public string myMessage = "Welcome";
 		public GameObject canvasWelcome;
 		private Text textWelcome;
-		private float waitTime = 3.5f;
+		private float waitTime = 0f;
 
 		void Start ()
 		{
